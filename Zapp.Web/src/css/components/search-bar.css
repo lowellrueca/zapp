@@ -1,0 +1,30 @@
+.form {
+    --padding: 4px;
+
+    width: 100%;
+    padding: var(--padding);
+    outline: var(--outline);
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.form-item {
+    border: none;
+    outline: none;
+}
+
+.form-input {
+    composes: form-item;
+    padding: var(--padding);
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.form-button {
+    composes: form-item;
+    background: none;
+    color: #555;
+}

@@ -1,0 +1,58 @@
+.nav {
+    display: flex;
+}
+
+.nav-bar {
+    composes: nav;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav-item + * {
+    margin-left: 1.6rem;
+}
+
+.nav-link {
+    composes: nav-item;
+    display: none;
+}
+
+.nav-link-component {
+    font-size: 1.2rem;
+}
+
+.nav-menu {
+    composes: nav-item;
+    display: initial;
+}
+
+.nav-basket {
+    composes: nav-item;
+    padding: .4rem;
+    outline: var(--outline);
+    border-radius: 50%;
+    position: relative;
+}
+
+.nav-basket::after {
+    content: attr(data-shopping-item-count);
+    transform: translate(0, -.8rem);
+    position: absolute;
+    font-size: .8rem;
+    padding: .25rem;
+    border-radius: 50%;
+    color: white;
+    background: #333;
+}
+
+@media only screen and (min-width: 1280px)
+{
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-link {
+        display: initial;
+    }
+}

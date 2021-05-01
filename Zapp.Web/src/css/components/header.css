@@ -1,0 +1,19 @@
+.cell {
+    width: 100%;
+    align-self: center;
+}
+
+.cell-start {
+    composes: cell;
+    grid-column: 1 / span 2;
+}
+
+.cell-mid {
+    composes: cell;
+    grid-column: 3 / span 5;
+}
+
+.cell-end {
+    composes: cell;
+    grid-column: 8 / span 2;
+}
