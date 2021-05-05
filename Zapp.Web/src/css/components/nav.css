@@ -4,32 +4,31 @@
     flex-direction: row;
 }
 
-.nav-bar {
+.nav-header-end {
     composes: nav;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
+    justify-content: end;
+}
+
+.nav-header-bottom {
+    composes: nav;
+    justify-content: start;
 }
 
 .nav-item + * {
     margin-left: 1.6rem;
 }
 
-.nav-link {
+.nav-item-link {
     composes: nav-item;
     display: none;
 }
 
-.nav-link-component {
-    font-size: 1.2rem;
-}
-
-.nav-menu {
+.nav-item-menu {
     composes: nav-item;
     display: initial;
 }
 
-.nav-basket {
+.nav-item-cart {
     composes: nav-item;
     padding: .4rem;
     outline: var(--outline);
