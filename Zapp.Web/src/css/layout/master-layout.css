@@ -30,3 +30,15 @@
     grid-template-columns: repeat(9, 1fr);
     column-gap: 1rem;
 }
+
+.master-grid-header {
+    composes: master-grid;
+    grid-template-rows: 80px;
+}
+
+@media only screen and (min-width: 1280px)
+{
+    .master-grid-header {
+        grid-template-rows: 80px 40px;
+    }
+}
