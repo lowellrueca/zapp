@@ -1,0 +1,100 @@
+<div class="_carousel__s5x7IqFP">
+    <div class="_carousel-item-slide__2rTktmhg _carousel-item__2aifqoCz">
+        @foreach (var item in SlideColors)
+        {
+            <a href="#" class="_carousel-img__15yhwTtZ"
+            style="transform: translateX(@CarouselCurrentTranslate); background-color: @item.Value">
+                <p class="_carousel-text__1vqE_hvW">
+                    slider-@($"{item.Key + 1}")
+                </p>
+            </a>
+        }
+    </div>
+    <div @onclick="SetPreviousSlide "
+        class="_carousel-item-left__Ns7gToYo _carousel-item__2aifqoCz _carousel-item-chevron__1ky5-47U">
+        <i class="oi oi-chevron-left"></i>
+    </div>
+    <div @onclick="SetNextSlide"
+        class="_carousel-item-right__1_P5ze24 _carousel-item__2aifqoCz _carousel-item-chevron__1ky5-47U">
+        <i class="oi oi-chevron-right"></i>
+    </div>
+    <div class="_carousel-item-bottom__1zfB9Vz1 _carousel-item__2aifqoCz">
+        @foreach (var item in SlideColors)
+        {
+            <div class="_carousel-dot__kvI6bwYx" data-dot-active="@SetActiveDot(item.Key)"
+            @onclick="() => SetActiveDotOnClick(item.Key)">
+                <i class="oi oi-media-record"></i>
+            </div>
+        }
+    </div>
+</div>
+
+@code
+{
+    private Dictionary<int, string> SlideColors = new Dictionary<int, string>() {
+{0, "#cc9a59"},
+{1, "#358286"},
+{2, "#81aedd"},
+{3, "#9dcc59"},
+{4, "#d02a2a"},
+};
+
+    int CarouselCurrentIndex { get; set; }
+    int CarouselCurrentOffset { get; set; }
+    string CarouselCurrentTranslate { get; set; }
+
+    int offset = 100;
+
+    protected override void OnInitialized()
+    {
+        CarouselCurrentIndex = SlideColors.Keys.First();
+        CarouselCurrentOffset = 0;
+    }
+
+    private void SetNextSlide()
+    {
+        int lastKey = SlideColors.Keys.Last();
+
+        if (CarouselCurrentIndex == lastKey)
+        {
+            CarouselCurrentIndex = lastKey;
+            CarouselCurrentOffset = CarouselCurrentIndex * offset;
+        }
+        else
+        {
+            CarouselCurrentIndex++;
+            CarouselCurrentOffset = CarouselCurrentIndex * offset;
+            CarouselCurrentTranslate = $"-{CarouselCurrentOffset}%";
+        }
+    }
+
+    private void SetPreviousSlide()
+    {
+        int firstKey = SlideColors.Keys.First();
+
+        if (CarouselCurrentIndex == firstKey)
+        {
+            CarouselCurrentIndex = firstKey;
+            CarouselCurrentOffset = CarouselCurrentIndex * offset;
+        }
+        else
+        {
+            CarouselCurrentIndex--;
+            CarouselCurrentOffset = CarouselCurrentIndex * offset;
+            CarouselCurrentTranslate = $"-{CarouselCurrentOffset}%";
+        }
+    }
+
+    private void SetActiveDotOnClick(int itemKey)
+    {
+        CarouselCurrentIndex = itemKey;
+        CarouselCurrentOffset = CarouselCurrentIndex * offset;
+        CarouselCurrentTranslate = $"-{CarouselCurrentOffset}%";
+    }
+
+    private string SetActiveDot(int itemKey)
+    {
+        bool res = CarouselCurrentIndex.Equals(itemKey) ? true : false;
+        return res.ToString().ToLower();
+    }
+}
