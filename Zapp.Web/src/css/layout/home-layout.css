@@ -1,0 +1,18 @@
+.container {
+    grid-column: 1 / span 9;
+}
+
+.container + * {
+    margin-top: 2.4rem;
+}
+
+.carousel-container  {
+    composes: container;
+    height: 50vh;
+    outline: var(--outline);
+}
+
+.cards-container {
+    composes: container;
+    outline: none;
+}
