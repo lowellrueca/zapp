@@ -1,0 +1,114 @@
+@using System.Collections.Generic
+
+@*
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card {
+        position: relative;
+        flex: 0 1 48%;
+        padding: 1rem;
+    }
+
+    .card > * {
+        line-height: 2.4rem;
+        text-align: center;
+    }
+
+    .card-image {
+        position: relative;
+        left: 50%;
+        max-width: 100%;
+        height: 150px;
+
+        transform: translateX(-50%);
+        object-fit: cover;
+    }
+
+    .card-header {
+        font-weight: bold;
+    }
+
+    .card-description {
+        height: 9.6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+
+    .card-price {
+        border-top: 1px solid color white;
+    }
+
+    @@media only screen and (min-width: 768px) {
+        .card {
+            flex: 0 1 calc(100% / 3);
+        }
+    }
+</style>
+*@
+
+<ul class="_card-container__22G8g073">
+    @foreach (var item in products)
+    {
+        <li class="_card__2lVnxHFW">
+            <img class="_card-image__2X4fk_bh" src="@item["imageSrc"]" alt="zapp-pedal">
+            <p class="_card-name__pLyfaT3V _card-item__3u1WAaCW">@item["name"] </p>
+            <p class="_card-description__3A68mT2G _card-item__3u1WAaCW">@item["description"]</p>
+            <p class="_card-price__28opjmlF _card-item__3u1WAaCW" data-unit-price="@item["unitPrice"]">@item["price"]</p>
+        </li>
+    }
+</ul>
+
+@code
+{
+    public static readonly List<Dictionary<object, object>> products = new List<Dictionary<object, object>>() {
+        new Dictionary<object, object>() {
+            { "id", 1 },
+            { "name", "product-1"},
+            { "description", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum odio natus aspernatur alias unde cumque in perferendis veritatis hic voluptatibus."},
+            { "imageSrc", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxaPaOSkg9Yl5_S3CqdO7Ci-V9FvP4rhx4Yg&usqp=CAU"},
+            { "price", 11.49},
+            { "unitPrice", "Php"},
+        },
+        new Dictionary<object, object>() {
+            { "id", 2 },
+            { "name", "product-2"},
+            { "description", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sint."},
+            { "imageSrc", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Q_KVoSsJUAw72h_FWKXSoGqLKwPh8XkG2Yt9YN6iRXo_ezTprlaVIvm0mw7nc6KQ75EfTgBg&usqp=CAc"},
+            { "price", 18.72},
+            { "unitPrice", "Php"},
+        },
+        new Dictionary<object, object>() {
+            { "id", 3 },
+            { "name", "product-3"},
+            { "description", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium voluptatum ratione quibusdam voluptas necessitatibus molestiae?"},
+            { "imageSrc", "https://cdn.shopify.com/s/files/1/2501/6068/products/products_2FF03-023-4554-000_2FF03-023-4554-000_1594264614380_158x158_crop_center.jpg?v=1594264624"},
+            { "price", 8.12},
+            { "unitPrice", "Php"},
+        },
+        new Dictionary<object, object>() {
+            { "id", 4 },
+            { "name", "product-4"},
+            { "description", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum odio natus aspernatur alias unde cumque in perferendis veritatis hic voluptatibus."},
+            { "imageSrc", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCXvMPZ7R54hgKoRr05NpCkFRO924GGDRNp7RFd3vR-hbwT2FM3AbNOPvONf5EoU1P06yRfeY&usqp=CAc"},
+            { "price", 39.85},
+            { "unitPrice", "Php"},
+        },
+        new Dictionary<object, object>() {
+            { "id", 5 },
+            { "name", "product-5"},
+            { "description", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sint."},
+            { "imageSrc", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2gYZozSzvJkiJx0hpwK86tH3-dragQptbDsipiGuHaofxjdjo9JyrCRfT0bOxdZXbi_DcbKI&usqp=CAc"},
+            { "price", 59.89},
+            { "unitPrice", "Php"},
+        },
+    };
+}
