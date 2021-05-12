@@ -1,18 +1,13 @@
-.container {
+.section {
     grid-column: 1 / span 9;
+    height: min-content;
 }
 
-.container + * {
-    margin-top: 2.4rem;
-}
-
-.carousel-container  {
-    composes: container;
+.carousel-section  {
+    composes: section;
     height: 50vh;
-    outline: var(--outline);
 }
 
-.cards-container {
-    composes: container;
-    outline: none;
+.section-header {
+    line-height: 7.2rem;
 }
