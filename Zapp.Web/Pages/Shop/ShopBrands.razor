@@ -1,0 +1,10 @@
+@page "/shop/brands"
+@page "/shop/brands/{brands}"
+
+<ProductListing />
+
+@code
+{
+    [Parameter]
+    public string Brands { get; set; }
+}
