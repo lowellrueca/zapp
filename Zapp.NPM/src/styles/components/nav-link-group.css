@@ -1,0 +1,9 @@
+.nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav-item + * {
+    margin-left: 1.6rem;
+}

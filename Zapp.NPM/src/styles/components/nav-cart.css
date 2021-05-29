@@ -1,0 +1,17 @@
+.nav-cart {
+    padding: 4px 5.5px;
+    outline: var(--outline);
+    border-radius: 50%;
+    position: relative;
+}
+
+.nav-cart::after {
+    content: attr(data-shopping-item-count);
+    transform: translate(0, -8px);
+    position: absolute;
+    font-size: 8px;
+    padding: 2.5px;
+    border-radius: 50%;
+    background: white;
+    opacity: 1;
+}

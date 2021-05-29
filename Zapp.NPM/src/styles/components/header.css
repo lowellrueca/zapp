@@ -1,0 +1,33 @@
+.base-cell {
+    width: var(--pcent-100);
+    align-self: center;
+}
+
+.cell-start {
+    grid-column: 1 / span 2;
+}
+
+    .cell-start * {
+        font-size: 1.8rem;
+    }
+    
+.cell-mid {
+    grid-column: 3 / span 5;
+}
+
+.cell-end {
+    grid-column: 8 / span 2;
+}
+
+.cell-bottom {
+    align-self: start;
+    grid-column: 1 / span 9;
+    display: none;
+}
+
+@media only screen and (min-width: 768px)
+{
+    .cell-bottom {
+        display: initial;
+    }
+}

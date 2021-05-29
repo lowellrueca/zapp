@@ -1,0 +1,47 @@
+.nav {
+    align-items: center;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.nav-sm {
+    display: flex;
+}
+
+.nav-md {
+    display: none;
+}
+
+.nav-lg {
+    display: none;
+}
+
+.nav-item + * {
+    margin-left: 1.2rem;
+}
+
+@media only screen and (min-width: 768px)
+{
+    .nav-item + * {
+        margin-left: 1.6rem;
+    }
+    
+    .nav-sm {
+        display: none;
+    }
+
+    .nav-md {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1280px)
+{
+    .nav-md {
+        display: none;
+    }
+
+    .nav-lg {
+        display: flex;
+    }
+}

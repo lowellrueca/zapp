@@ -1,0 +1,30 @@
+.side-panel {
+	display: none;
+	grid-column: 1/ span 3;
+}
+
+.content-panel {
+	grid-column: 1/ span 9;
+}
+
+@media only screen and (min-width: 768px)
+{
+	.side-panel {
+		display: initial;
+	}
+
+	.content-panel {
+		grid-column: 4/ span 6;
+	}
+}
+
+@media only screen and (min-width: 1280px)
+{
+	.side-panel {
+		grid-column: 1/ span 2;
+	}
+
+	.content-panel {
+		grid-column: 3/ span 7;
+	}
+}

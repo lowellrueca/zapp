@@ -1,0 +1,17 @@
+:root {
+    --font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --header-height: 80px;
+    --main-padding-top: calc(var(--header-height) + 2.4rem);
+
+    /*-- utilities --*/
+    --outline: 1px solid grey;
+    --pcent-100: 100%;
+    --vw-100: 100vw;
+}
+
+@media only screen and (min-width: 768px)
+{
+    :root {
+        --header-height: 120px;
+    }
+}
