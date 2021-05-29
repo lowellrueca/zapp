@@ -1,0 +1,14 @@
+@page "/shop/product/{productId:int}"
+
+<h3>
+    Product
+</h3>
+<h5>
+    Product Id: @productId
+</h5>
+
+@code
+{
+    [Parameter]
+    public int productId { get; set; }
+}
