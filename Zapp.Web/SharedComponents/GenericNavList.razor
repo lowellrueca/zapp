@@ -1,0 +1,53 @@
+<ul class="_nav-ul__3XK9JeiR">
+    <li @onclick="IsExpandedHandler" class="_nav-li-header__3ue1wc5d">
+        <div>
+            @ListTitle
+        </div>
+        @if(IsExpanded)
+        {
+            @DefaultContent
+        }
+        else
+        {
+            @ToggledContent
+        }
+    </li>
+    @if(IsExpanded)
+    {
+        @foreach (KeyValuePair<object, object> kpv in Navigations)
+        {
+            <li class="_nav-li__176ME9jI">
+                <NavLink href="@($"/shop/effectsType/{kpv.Key}")">
+                    @kpv.Value
+                </NavLink>
+            </li>
+        }
+    }
+</ul>
+
+@code
+{
+    [Parameter]
+    public Dictionary<object, object> Navigations { get; set; }
+
+    [Parameter]
+    public bool IsExpanded { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsExpandedChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment DefaultContent { get; set; }
+
+    [Parameter]
+    public RenderFragment ToggledContent { get; set; }
+
+    [Parameter]
+    public string ListTitle { get; set; }
+
+    async Task IsExpandedHandler()
+    {
+        IsExpanded = !IsExpanded;
+        await IsExpandedChanged.InvokeAsync(IsExpanded);
+    }
+}
