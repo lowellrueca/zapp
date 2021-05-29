@@ -1,0 +1,62 @@
+<!-- mobile size -->
+<div class="_nav__MXmXRDHx _nav-sm__wvIEx73n">
+    <div class="_nav-item__CkiW7pnj" @onclick="ToggleMenuOnClick">
+        <GenericToggleComponent @bind-IsToggled="IsToggleMenu" @bind-IsToggled:event="IsToggledChanged">
+            <DefaultContent>
+                <i class="oi oi-menu"></i>
+            </DefaultContent>
+            <ToggledContent>
+                <i class="oi oi-x"></i>
+            </ToggledContent>
+        </GenericToggleComponent>
+    </div>
+    <div class="_nav-item__CkiW7pnj">
+        <NavCart />
+    </div>
+</div>
+
+<!-- tablet size -->
+<div class="_nav__MXmXRDHx _nav-md__1W1s_wFO">
+    <div class="_nav-item__CkiW7pnj">
+        <a href="#">
+            <i class="oi oi-person"></i>
+        </a>
+    </div>
+    <div class="_nav-item__CkiW7pnj">
+        <a href="#">
+            <i class="oi oi-account-login"></i>
+        </a>
+    </div>
+    <div class="_nav-item__CkiW7pnj">
+        <NavCart />
+    </div>
+</div>
+
+<!-- desktop size -->
+<div class="_nav__MXmXRDHx _nav-lg__du70zNrq">
+    <div class="_nav-item__CkiW7pnj">
+        <a href="#">Sign-up</a>
+    </div>
+    <div class="_nav-item__CkiW7pnj">
+        <a href="#">Sign-in</a>
+    </div>
+    <div class="_nav-item__CkiW7pnj">
+        <NavCart />
+    </div>
+</div>
+<NavToggle @bind-IsNavDisplayed="IsToggleMenu" @bind-IsNavDisplayed:event="IsNavDisplayedChange" />
+
+@code
+{
+    public bool IsToggleMenu { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    private void ToggleMenuOnClick()
+    {
+        IsToggleMenu = !IsToggleMenu;
+    }
+}
