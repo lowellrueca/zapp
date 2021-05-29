@@ -1,0 +1,74 @@
+@inject NavigationViewModelService NavigationViewModel
+
+<div class="_nav-toggle__HkX8bSt0">
+    @if (IsNavDisplayed)
+    {
+        <ul class="_nav-ul__3XK9JeiR">
+            <li class="_nav-li__176ME9jI">
+                Welcome Guest!!!
+            </li>
+
+            <li class="_nav-li__176ME9jI">
+                <a href="#">
+                    <i class="oi oi-person"></i>
+                    <span>Register</span>
+                </a>
+                <span>|</span>
+                <a href="#">
+                    <i class="oi oi-account-login"></i>
+                    <span>Sign-in</span>
+                </a>
+            </li>
+
+            <li class="_nav-li__176ME9jI">
+                <NavLink href="/shop" class="_nav-link__snQD-yiK">Shop</NavLink>
+            </li>
+            <li class="_nav-li__176ME9jI">
+                <GenericNavList @bind-IsExpanded="IsEffectsTypeListExpanded" @bind-IsExpanded:event="IsExpandedChanged"
+                Navigations="EffectsTypeNavigation" ListTitle="Effects Type">
+
+                    <DefaultContent>
+                        <span class="oi oi-minus _oi__3oDV9vFL"></span>
+                    </DefaultContent>
+                    <ToggledContent>
+                        <span class="oi oi-chevron-bottom _oi__3oDV9vFL"></span>
+                    </ToggledContent>
+                </GenericNavList>
+            </li>
+
+            <li class="_nav-li__176ME9jI">
+                <GenericNavList @bind-IsExpanded="IsBrandListExpanded" @bind-IsExpanded:event="IsExpandedChanged"
+                Navigations="BrandsNavigation" ListTitle="Brands">
+
+                    <DefaultContent>
+                        <span class="oi oi-minus _oi__3oDV9vFL"></span>
+                    </DefaultContent>
+                    <ToggledContent>
+                        <span class="oi oi-chevron-bottom _oi__3oDV9vFL"></span>
+                    </ToggledContent>
+                </GenericNavList>
+            </li>
+        </ul>
+    }
+</div>
+
+@code
+{
+    Dictionary<object, object> EffectsTypeNavigation { get => NavigationViewModel.EffectsTypeNavigation; }
+    Dictionary<object, object> BrandsNavigation { get => NavigationViewModel.BrandsNavigation; }
+
+    [Parameter]
+    public bool IsNavDisplayed { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsNavDisplayedChange { get; set; }
+
+    bool IsEffectsTypeListExpanded { get; set; }
+    bool IsBrandListExpanded { get; set; }
+
+    protected override void OnInitialized()
+    {
+        IsEffectsTypeListExpanded = !IsBrandListExpanded;
+        IsBrandListExpanded = !IsBrandListExpanded;
+    }
+}
