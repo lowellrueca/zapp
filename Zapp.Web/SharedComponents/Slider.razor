@@ -1,27 +1,27 @@
-<div class="_carousel__s5x7IqFP">
-    <div class="_carousel-item-slide__2rTktmhg _carousel-item__2aifqoCz">
+<div class="_carousel__116qAS3F">
+    <div class="_carousel-item__1HhnsgHa _carousel-item-slide__1dM04oP2">
         @foreach (var item in SlideColors)
         {
-            <a href="#" class="_carousel-img__15yhwTtZ"
+            <a href="#" class="_carousel-img__79vTgMsL"
             style="transform: translateX(@CarouselCurrentTranslate); background-color: @item.Value">
-                <p class="_carousel-text__1vqE_hvW">
+                <p class="_carousel-text__1EDRiGP5">
                     slider-@($"{item.Key + 1}")
                 </p>
             </a>
         }
     </div>
-    <div @onclick="SetPreviousSlide "
-        class="_carousel-item-left__Ns7gToYo _carousel-item__2aifqoCz _carousel-item-chevron__1ky5-47U">
+    <div @onclick="SetPreviousSlide"
+        class="_carousel-item__1HhnsgHa _carousel-item-chevron__1BL4wSFN _carousel-item-left__1CGkioYy">
         <i class="oi oi-chevron-left"></i>
     </div>
     <div @onclick="SetNextSlide"
-        class="_carousel-item-right__1_P5ze24 _carousel-item__2aifqoCz _carousel-item-chevron__1ky5-47U">
+        class="_carousel-item__1HhnsgHa _carousel-item-chevron__1BL4wSFN _carousel-item-right__EfefEmzr">
         <i class="oi oi-chevron-right"></i>
     </div>
-    <div class="_carousel-item-bottom__1zfB9Vz1 _carousel-item__2aifqoCz">
+    <div class="_carousel-item__1HhnsgHa _carousel-item-bottom__24bzXANO">
         @foreach (var item in SlideColors)
         {
-            <div class="_carousel-dot__kvI6bwYx" data-dot-active="@SetActiveDot(item.Key)"
+            <div class="_carousel-dot__zsW7LztF" data-dot-active="@SetActiveDot(item.Key)"
             @onclick="() => SetActiveDotOnClick(item.Key)">
                 <i class="oi oi-media-record"></i>
             </div>
