@@ -1,0 +1,23 @@
+@if (IsToggled)
+{
+    @ToggledContent
+}
+else
+{
+    @DefaultContent
+}
+
+@code
+{
+    [Parameter]
+    public bool IsToggled { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsToggledChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment DefaultContent { get; set; }
+
+    [Parameter]
+    public RenderFragment ToggledContent { get; set; }
+}
