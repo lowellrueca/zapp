@@ -1,0 +1,55 @@
+@inject NavigationViewModelService NavigationViewModel
+
+<ul class="_nav-ul__3XK9JeiR">
+    <li class="_nav-li__176ME9jI">
+        <NavLink href="/shop" class="_nav-link__snQD-yiK">Explore All</NavLink>
+    </li>
+    
+    <!-- categories and effects type -->
+    <li class="_nav-li__176ME9jI">
+        <GenericNavList @bind-IsExpanded="IsEffectsTypeListExpanded" 
+                        @bind-IsExpanded:event="IsExpandedChanged"
+                        Navigations="EffectsTypeNavigation"
+                        ListTitle="Effects Type">
+            
+            <DefaultContent>
+                <span class="oi oi-minus _oi__3oDV9vFL"></span>
+            </DefaultContent>
+             <ToggledContent>
+                <span class="oi oi-chevron-bottom _oi__3oDV9vFL"></span>
+            </ToggledContent>
+        </GenericNavList>
+    </li>
+
+    <!-- brands -->
+    <li class="_nav-li__176ME9jI">
+        <GenericNavList @bind-IsExpanded="IsBrandListExpanded" 
+                        @bind-IsExpanded:event="IsExpandedChanged"
+                        Navigations="BrandsNavigation"
+                        ListTitle="Brands">
+            
+            <DefaultContent>
+                <span class="oi oi-minus _oi__3oDV9vFL"></span>
+            </DefaultContent>
+            <ToggledContent>
+                <span class="oi oi-chevron-bottom _oi__3oDV9vFL"></span>
+            </ToggledContent>
+        </GenericNavList>
+    </li>
+</ul>
+
+@code
+{
+    Dictionary<object, object> EffectsTypeNavigation { get => NavigationViewModel.EffectsTypeNavigation; }
+    Dictionary<object, object> BrandsNavigation { get => NavigationViewModel.BrandsNavigation; }
+
+    bool IsEffectsTypeListExpanded { get; set; }
+    bool IsBrandListExpanded { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        IsBrandListExpanded = true;
+        IsEffectsTypeListExpanded = true;
+    }
+}
